@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -9,9 +7,9 @@ public class Main {
 //        ex2();
 //        ex3();
 //        ex4();
-        ex5();
+//        ex5();
 //        ex6();
-//        ex7();
+        ex7();
 //        ex8();
 //        ex9();
 //        ex10();
@@ -108,9 +106,67 @@ public class Main {
     }
 
     private static void ex6() {
+
+        int[] ints = {0,1,1,1,0,0,1,0,0,1,0,0,0};
+        String output = "";
+
+        ArrayList<Integer> ones = new ArrayList<>();
+        ArrayList<Integer> zeros = new ArrayList<>();
+        ArrayList<Integer> input = new ArrayList<>();
+
+        for(int i = 0; i < ints.length; i++){
+            input.add(ints[i]);
+        }
+
+        for(int i : input){
+            if(i == 0){
+                zeros.add(i);
+            }
+            else{
+                ones.add(i);
+            }
+        }
+
+        for(int i : zeros){
+            output += i;
+        }
+
+        for(int i : ones){
+            output += i;
+        }
+
+        System.out.println(output);
     }
 
     private static void ex7() {
+        ArrayList<Integer> someArray = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        int num;
+        System.out.println("Enter some numbers: ");
+
+        while(scanner.hasNextInt()){
+            num = Integer.parseInt(scanner.next());
+
+            if(!Character.isLetter(num)){
+                someArray.add(num);
+            }
+            else{
+                break;
+            }
+        }
+
+        System.out.println(randomNumberGenerator(someArray));
+    }
+
+    private static int randomNumberGenerator(ArrayList<Integer> someArray) {
+        int randomIndex;
+        int randomNumber;
+        Random random = new Random();
+
+        randomIndex = random.nextInt(someArray.size());
+        randomNumber = someArray.get(randomIndex);
+
+        return randomNumber;
     }
 
     private static void ex8() {
