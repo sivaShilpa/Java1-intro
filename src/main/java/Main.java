@@ -9,8 +9,8 @@ public class Main {
 //        ex4();
 //        ex5();
 //        ex6();
-        ex7();
-//        ex8();
+//        ex7();
+        ex8();
 //        ex9();
 //        ex10();
     }
@@ -170,6 +170,39 @@ public class Main {
     }
 
     private static void ex8() {
+        ArrayList<Float> shoppingCart = new ArrayList<>();
+        float sum = 0.00F;
+        float TAX = 10/100;
+        float shipAndHandle = 0.00F;
+        Scanner scanner = new Scanner(System.in);
+        float eachItem = 0.00F;
+
+        System.out.println("Enter a few item prices for the shopping cart:");
+
+        while(scanner.hasNextFloat()){
+            eachItem = scanner.nextFloat();
+
+            if(!Character.isLetter((char) eachItem)){
+                shoppingCart.add(eachItem);
+            }
+            else{
+                break;
+            }
+        }
+
+        for(int i = 0; i < shoppingCart.size(); i++){
+            sum += shoppingCart.get(i);
+        }
+        sum += sum*TAX;
+
+        if(sum < 10.00){
+            sum += 5.00;
+        }
+        else if(sum > 10.00 && sum < 20.00){
+            sum += 4.00;
+        }
+
+        System.out.println("the total is: " + sum);
     }
 
     private static void ex9() {
