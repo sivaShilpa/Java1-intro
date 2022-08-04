@@ -11,8 +11,8 @@ public class Main {
 //        ex6();
 //        ex7();
 //        ex8();
-        ex9();
-//        ex10();
+//        ex9();
+        ex10();
     }
 
     private static void ex1() {
@@ -243,5 +243,34 @@ public class Main {
 
 
     private static void ex10() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter password:");
+        String password = scanner.next();
+        String[] passwordSplit = password.split("");
+
+        ArrayList<String> passwordList = new ArrayList<>(Arrays.asList(passwordSplit));
+
+        int count = 0;
+        int digits = 0;
+        int symbols = 0;
+
+        for(String i : passwordList){
+            count += 1;
+            if(i.matches(".*[0-9].*")){
+                digits += 1;
+            }
+            if(i.matches(".*[^A-Za-z0-9].*")){
+                symbols += 1;
+            }
+        }
+
+        if(count >= 10 && digits >= 2 && symbols == 0){
+            System.out.println("Password is valid");
+        }
+        else{
+            System.out.println("Password is invalid");
+        }
+
     }
 }
