@@ -10,8 +10,8 @@ public class Main {
 //        ex5();
 //        ex6();
 //        ex7();
-        ex8();
-//        ex9();
+//        ex8();
+        ex9();
 //        ex10();
     }
 
@@ -206,7 +206,41 @@ public class Main {
     }
 
     private static void ex9() {
+        ArrayList<Integer> myArray = new ArrayList<>();
+
+        Scanner scanner = new Scanner(System.in);
+        int eachNum = 0;
+
+        System.out.println("Enter a few integers to the array:");
+        while(scanner.hasNextInt()){
+            eachNum = scanner.nextInt();
+            if(!Character.isLetter(eachNum)){
+                myArray.add(eachNum);
+            }
+            else{
+                break;
+            }
+        }
+
+        var result = checkArray(myArray);
+        System.out.println(result);
     }
+
+    private static String checkArray(ArrayList<Integer> myArray) {
+        int sum = 0;
+
+        for(int i : myArray){
+            sum += i;
+        }
+        if(sum % 2 == 0){
+            return "even";
+        }
+        else{
+            return "odd";
+        }
+
+    }
+
 
     private static void ex10() {
     }
